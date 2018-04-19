@@ -1,0 +1,35 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 50%;
+  display: block;
+  margin: auto;
+  text-align: center;
+  padding: 15px;
+}
+
+select {
+  max-width: 10em;
+  margin: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    width: 500px;
+    min-height: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+#deleteButton {
+  margin-left: auto;
+}
+
+.overMessage {
+  color: red;
+}
