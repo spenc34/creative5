@@ -74,7 +74,7 @@ var app = new Vue({
       document.getElementById("datepicker").style.border = "1px solid #ced4da";
     },
     register: function() {
-      axios.post("http://localhost:3000/api/users", {
+      axios.post("http://http://104.236.156.21:3000/api/users", {
         username: this.username,
         password: this.password,
       }).then(response => {
@@ -91,7 +91,7 @@ var app = new Vue({
       });
     },
     login: function() {
-      axios.post("http://localhost:3000/api/login", {
+      axios.post("http://http://104.236.156.21:3000/api/login", {
         username: this.username,
         password: this.password,
       }).then(response => {
@@ -113,7 +113,7 @@ var app = new Vue({
         return;
       }
 
-      axios.post("http://localhost:3000/api/items", {
+      axios.post("http://http://104.236.156.21:3000/api/items", {
         user_id: this.user.id,
         amount: this.amount,
         description: this.description,
@@ -140,7 +140,7 @@ var app = new Vue({
       });
     },
     getItems: function() {
-      axios.get("http://localhost:3000/api/items/" + this.user.id + '/' + this.month).then(response => {
+      axios.get("http://http://104.236.156.21:3000/api/items/" + this.user.id + '/' + this.month).then(response => {
         console.log('Getting items')
         this.items = response.data.expenses;
         this.isOverBudget();
@@ -153,7 +153,7 @@ var app = new Vue({
       return amount.toFixed(2);
     },
     getCategories: function() {
-      axios.get("http://localhost:3000/api/categories").then(response => {
+      axios.get("http://http://104.236.156.21:3000/api/categories").then(response => {
         this.categories = response.data;
         return true;
       }).catch(err => {
@@ -161,7 +161,7 @@ var app = new Vue({
       });
     },
     getBudget: function() {
-      axios.get("http://localhost:3000/api/budget/" + this.user.id + '/' + this.month).then(response => {
+      axios.get("http://http://104.236.156.21:3000/api/budget/" + this.user.id + '/' + this.month).then(response => {
         console.log('Getting budget')
         this.budget = response.data.budget;
         if (this.budget)
@@ -175,7 +175,7 @@ var app = new Vue({
       });
     },
     setBudget: function() {
-      axios.post("http://localhost:3000/api/budget/", {
+      axios.post("http://http://104.236.156.21:3000/api/budget/", {
         id: this.user.id,
         month: this.month,
         amount: this.budget,
@@ -189,14 +189,14 @@ var app = new Vue({
       });
     },
     deleteItem: function(item) {
-      axios.delete("http://localhost:3000/api/items/" + item.id).then(response => {
+      axios.delete("http://http://104.236.156.21:3000/api/items/" + item.id).then(response => {
         this.getItems();
       }).catch(err => {
         console.log(err);
       });
     },
     getMessage: function() {
-      axios.get("http://localhost:3000/api/message").then(response => {
+      axios.get("http://http://104.236.156.21:3000/api/message").then(response => {
         this.message = response.data;
       }).catch(err => {
         console.log(err);
